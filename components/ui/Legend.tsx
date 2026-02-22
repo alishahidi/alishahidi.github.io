@@ -51,7 +51,7 @@ export function Legend() {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1 }}
-      className="fixed left-4 bottom-4 z-30"
+      className="fixed left-2 sm:left-4 bottom-2 sm:bottom-4 z-30"
     >
       {/* Toggle button */}
       <button
@@ -73,7 +73,7 @@ export function Legend() {
             exit={{ opacity: 0, y: 10, height: 0 }}
             transition={{ duration: 0.2 }}
             className="mt-2 bg-black/90 backdrop-blur-sm border border-[#FDB813]/30
-              rounded overflow-hidden"
+              rounded overflow-hidden max-h-[60vh] overflow-y-auto w-56 sm:w-auto"
           >
             <div className="p-3">
               <h3 className="text-[#FDB813] font-mono text-xs uppercase mb-3 border-b border-[#FDB813]/20 pb-2">

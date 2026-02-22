@@ -24,10 +24,10 @@ export function AchievementPopup() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -50, scale: 0.9 }}
           transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-          className="fixed top-20 left-1/2 -translate-x-1/2 z-50"
+          className="fixed top-14 sm:top-20 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] sm:w-auto max-w-sm"
         >
           <div
-            className="bg-black/90 backdrop-blur-sm border border-[#ffff00]/50 rounded-lg px-6 py-4
+            className="bg-black/90 backdrop-blur-sm border border-[#ffff00]/50 rounded-lg px-4 sm:px-6 py-3 sm:py-4
               shadow-lg"
             style={{
               boxShadow: '0 0 30px rgba(255, 255, 0, 0.3)',

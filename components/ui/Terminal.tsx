@@ -131,10 +131,10 @@ export function Terminal({ onGlitch, onThemeChange, onMatrixToggle }: TerminalPr
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[600px] z-50"
+          className="fixed bottom-0 left-0 right-0 sm:bottom-4 sm:left-4 sm:right-4 md:left-auto md:right-4 md:w-[600px] z-50"
         >
           <div
-            className="bg-black/90 border border-[#00ff41]/50 rounded-lg overflow-hidden backdrop-blur-sm"
+            className="bg-black/95 border-t sm:border border-[#00ff41]/50 rounded-t-xl sm:rounded-lg overflow-hidden backdrop-blur-sm"
             style={{
               boxShadow: '0 0 20px rgba(0, 255, 65, 0.2)',
             }}
@@ -162,7 +162,7 @@ export function Terminal({ onGlitch, onThemeChange, onMatrixToggle }: TerminalPr
             {/* Output */}
             <div
               ref={scrollRef}
-              className="h-64 overflow-y-auto scroll-smooth p-4 font-mono text-sm"
+              className="h-48 sm:h-64 overflow-y-auto scroll-smooth p-3 sm:p-4 font-mono text-xs sm:text-sm overscroll-contain"
             >
               {history.map((entry, i) => (
                 <div
@@ -184,7 +184,7 @@ export function Terminal({ onGlitch, onThemeChange, onMatrixToggle }: TerminalPr
 
             {/* Input */}
             <form onSubmit={handleSubmit} className="border-t border-[#00ff41]/30">
-              <div className="flex items-center px-4 py-2">
+              <div className="flex items-center px-3 sm:px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
                 <span className="text-[#00ff41] mr-2">{'>'}</span>
                 <input
                   ref={inputRef}

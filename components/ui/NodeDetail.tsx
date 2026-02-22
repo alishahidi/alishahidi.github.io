@@ -74,10 +74,10 @@ export function NodeDetail() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 20 }}
         transition={{ duration: 0.3 }}
-        className="fixed bottom-0 left-0 right-0 sm:bottom-auto sm:left-auto sm:top-4 sm:right-4 w-full sm:w-80 md:w-96 max-h-[70vh] sm:max-h-[calc(100vh-2rem)] z-40 overflow-hidden"
+        className="fixed bottom-0 left-0 right-0 sm:bottom-auto sm:left-auto sm:top-4 sm:right-4 w-full sm:w-80 md:w-96 max-h-[60vh] sm:max-h-[calc(100vh-2rem)] z-40 overflow-hidden"
       >
         <div
-          className="bg-black/90 border rounded-lg backdrop-blur-sm overflow-hidden"
+          className="bg-black/90 border border-t sm:border rounded-t-xl sm:rounded-lg backdrop-blur-sm overflow-hidden"
           style={{
             borderColor: `${color}50`,
             boxShadow: `0 0 30px ${color}20`,
@@ -145,11 +145,11 @@ export function NodeDetail() {
               </h4>
               <div className="space-y-1">
                 {planetConfig.roles.map((role, i) => (
-                  <div key={i} className="flex items-center justify-between">
+                  <div key={i} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5 sm:gap-2">
                     <span className="text-xs font-mono text-gray-200">
                       {role.title}
                     </span>
-                    <span className="text-[10px] font-mono text-gray-500">
+                    <span className="text-[10px] font-mono text-gray-500 shrink-0">
                       {role.duration}
                     </span>
                   </div>
@@ -189,7 +189,7 @@ export function NodeDetail() {
           )}
 
           {/* Content */}
-          <div className="p-4 overflow-y-auto max-h-[50vh]">
+          <div className="p-3 sm:p-4 overflow-y-auto max-h-[35vh] sm:max-h-[50vh] overscroll-contain">
             <div
               className="prose prose-invert prose-sm max-w-none
                 prose-headings:font-mono

@@ -25,25 +25,25 @@ const CATEGORY_TOTALS = {
 };
 
 function ProgressRing({ percent }: { percent: number }) {
-  const radius = 52;
-  const stroke = 6;
+  const radius = 44;
+  const stroke = 5;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percent / 100) * circumference;
 
   return (
-    <div className="relative w-32 h-32 mx-auto">
-      <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
+    <div className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto">
+      <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
         <circle
-          cx="60"
-          cy="60"
+          cx="50"
+          cy="50"
           r={radius}
           fill="none"
           stroke="#FDB81320"
           strokeWidth={stroke}
         />
         <circle
-          cx="60"
-          cy="60"
+          cx="50"
+          cy="50"
           r={radius}
           fill="none"
           stroke="#FDB813"
@@ -55,10 +55,10 @@ function ProgressRing({ percent }: { percent: number }) {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-mono font-bold text-[#FDB813]">
+        <span className="text-xl sm:text-2xl font-mono font-bold text-[#FDB813]">
           {percent}%
         </span>
-        <span className="text-[10px] font-mono text-gray-500 uppercase">
+        <span className="text-[9px] sm:text-[10px] font-mono text-gray-500 uppercase">
           Explored
         </span>
       </div>
@@ -80,11 +80,11 @@ function CategoryBar({
   const percent = total > 0 ? Math.min((current / total) * 100, 100) : 0;
 
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-xs font-mono w-24 text-gray-400 shrink-0">
+    <div className="flex items-center gap-2 sm:gap-3">
+      <span className="text-[11px] sm:text-xs font-mono w-20 sm:w-24 text-gray-400 shrink-0">
         {label}
       </span>
-      <div className="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
+      <div className="flex-1 h-1.5 sm:h-2 bg-gray-800 rounded-full overflow-hidden">
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundColor: color }}
@@ -93,7 +93,7 @@ function CategoryBar({
           transition={{ duration: 0.5, delay: 0.1 }}
         />
       </div>
-      <span className="text-xs font-mono w-10 text-right" style={{ color }}>
+      <span className="text-[11px] sm:text-xs font-mono w-8 sm:w-10 text-right" style={{ color }}>
         {current}/{total}
       </span>
     </div>
@@ -107,7 +107,6 @@ function OverviewTab() {
   const nebulaeVisited = useDiscoveryStore((s) => s.nebulaeVisited);
   const secretsFound = useDiscoveryStore((s) => s.secretsFound);
 
-  // Count discovered skills from discovered nodes
   const skillsDiscovered = useMemo(
     () => discoveredNodes.filter((id) => id.startsWith('skill-')).length,
     [discoveredNodes]
@@ -131,10 +130,10 @@ function OverviewTab() {
     grandTotal > 0 ? Math.round((totalDiscovered / grandTotal) * 100) : 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <ProgressRing percent={overallPercent} />
 
-      <div className="space-y-3">
+      <div className="space-y-2.5 sm:space-y-3">
         <h4 className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">
           Category Breakdown
         </h4>
@@ -178,31 +177,31 @@ function AchievementsTab() {
   const unlockedCount = useAchievementStore((s) => s.getUnlockedCount());
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 sm:space-y-4">
       <div className="text-center">
         <span className="text-xs font-mono text-[#FDB813]">
           {unlockedCount}/{achievements.length} UNLOCKED
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {achievements.map((a) => (
           <div
             key={a.id}
-            className="p-2.5 rounded border transition-all"
+            className="p-2 sm:p-2.5 rounded border transition-all"
             style={{
               borderColor: a.unlocked ? '#FDB81360' : '#333',
               backgroundColor: a.unlocked ? '#FDB81308' : '#111',
               boxShadow: a.unlocked ? '0 0 12px #FDB81320' : 'none',
             }}
           >
-            <div className="flex items-start gap-2">
-              <span className="text-lg leading-none">
+            <div className="flex items-center sm:items-start gap-2">
+              <span className="text-base sm:text-lg leading-none shrink-0">
                 {a.unlocked ? a.icon : '\uD83D\uDD12'}
               </span>
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <p
-                  className="text-xs font-mono font-bold truncate"
+                  className="text-[11px] sm:text-xs font-mono font-bold truncate"
                   style={{ color: a.unlocked ? '#FDB813' : '#555' }}
                 >
                   {a.unlocked ? a.name : '???'}
@@ -243,12 +242,12 @@ function StatsTab() {
     { label: 'Session Time', value: `${mins}m ${secs}s`, color: '#FDB813' },
     { label: 'Total Visits', value: String(totalVisits), color: '#FDB813' },
     { label: 'First Visit', value: firstVisit, color: '#FDB813' },
-    { label: '', value: '', color: '' }, // spacer
+    { label: '', value: '', color: '' },
     { label: 'Nodes Discovered', value: String(discoveredNodes.length), color: '#00ffff' },
     { label: 'Total Clicks', value: String(totalClicks), color: '#00ffff' },
     { label: 'Terminal Commands', value: String(terminalCommandsUsed), color: '#00ffff' },
-    { label: 'Connections Followed', value: String(connectionsFollowed), color: '#00ffff' },
-    { label: '', value: '', color: '' }, // spacer
+    { label: 'Connections', value: String(connectionsFollowed), color: '#00ffff' },
+    { label: '', value: '', color: '' },
     { label: 'Secrets Found', value: String(secretsFound), color: '#ff0055' },
     { label: 'Philosophy Read', value: String(philosophyRead), color: '#ff00ff' },
     { label: 'Nodes/Minute', value: String(getNodesPerMinute()), color: '#00ff41' },
@@ -256,14 +255,14 @@ function StatsTab() {
   ];
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1">
       {stats.map((stat, i) =>
         stat.label === '' ? (
-          <div key={i} className="h-2" />
+          <div key={i} className="h-1.5 sm:h-2" />
         ) : (
-          <div key={stat.label} className="flex items-center justify-between py-1 px-1">
-            <span className="text-xs font-mono text-gray-400">{stat.label}</span>
-            <span className="text-xs font-mono font-bold" style={{ color: stat.color }}>
+          <div key={stat.label} className="flex items-center justify-between py-0.5 sm:py-1 px-1">
+            <span className="text-[11px] sm:text-xs font-mono text-gray-400">{stat.label}</span>
+            <span className="text-[11px] sm:text-xs font-mono font-bold" style={{ color: stat.color }}>
               {stat.value}
             </span>
           </div>
@@ -287,74 +286,97 @@ export function ExplorationBoard() {
   return (
     <AnimatePresence>
       {showBoard && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.25 }}
-          className="fixed top-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-4 sm:translate-x-0 w-[calc(100%-2rem)] sm:w-[440px] max-h-[80vh] z-45 overflow-hidden pointer-events-auto"
-        >
-          <div className="bg-black/95 backdrop-blur-md border border-[#FDB813]/30 rounded-lg overflow-hidden shadow-2xl">
-            {/* Header */}
-            <div className="px-4 py-3 border-b border-[#FDB813]/20 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#FDB813] animate-pulse" />
-                <h2 className="font-mono text-sm font-bold text-[#FDB813] uppercase tracking-wider">
-                  Exploration Log
-                </h2>
+        <>
+          {/* Backdrop on mobile for better UX — tap outside to close */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-[44] sm:hidden"
+            onClick={toggleBoard}
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.25 }}
+            className="fixed bottom-0 left-0 right-0
+              sm:bottom-auto sm:top-4 sm:left-auto sm:right-4
+              w-full sm:w-[420px]
+              max-h-[85vh] sm:max-h-[80vh]
+              z-[45] pointer-events-auto"
+          >
+            <div className="bg-black/95 backdrop-blur-md border-t sm:border border-[#FDB813]/30 sm:rounded-lg rounded-t-xl overflow-hidden shadow-2xl">
+              {/* Drag handle on mobile */}
+              <div className="sm:hidden flex justify-center pt-2 pb-1">
+                <div className="w-10 h-1 rounded-full bg-gray-600" />
               </div>
-              <button
-                onClick={toggleBoard}
-                className="text-gray-500 hover:text-white transition-colors font-mono text-xs"
-              >
-                [x]
-              </button>
-            </div>
 
-            {/* Tabs */}
-            <div className="flex border-b border-[#FDB813]/10">
-              {tabs.map((tab) => (
+              {/* Header */}
+              <div className="px-3 sm:px-4 py-2 sm:py-3 border-b border-[#FDB813]/20 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-[#FDB813] animate-pulse" />
+                  <h2 className="font-mono text-xs sm:text-sm font-bold text-[#FDB813] uppercase tracking-wider">
+                    Exploration Log
+                  </h2>
+                </div>
                 <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className="flex-1 py-2 text-xs font-mono uppercase tracking-wider transition-all"
-                  style={{
-                    color: activeTab === tab.id ? '#FDB813' : '#666',
-                    borderBottom:
-                      activeTab === tab.id ? '2px solid #FDB813' : '2px solid transparent',
-                    backgroundColor: activeTab === tab.id ? '#FDB81308' : 'transparent',
-                  }}
+                  onClick={toggleBoard}
+                  className="text-gray-500 hover:text-white transition-colors font-mono text-xs p-1 -mr-1"
                 >
-                  {tab.label}
+                  [x]
                 </button>
-              ))}
-            </div>
+              </div>
 
-            {/* Content */}
-            <div className="p-4 overflow-y-auto max-h-[calc(80vh-6rem)] scrollbar-thin">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  {activeTab === 'overview' && <OverviewTab />}
-                  {activeTab === 'achievements' && <AchievementsTab />}
-                  {activeTab === 'stats' && <StatsTab />}
-                </motion.div>
-              </AnimatePresence>
-            </div>
+              {/* Tabs */}
+              <div className="flex border-b border-[#FDB813]/10">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className="flex-1 py-2.5 sm:py-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider transition-all active:bg-[#FDB81315]"
+                    style={{
+                      color: activeTab === tab.id ? '#FDB813' : '#666',
+                      borderBottom:
+                        activeTab === tab.id ? '2px solid #FDB813' : '2px solid transparent',
+                      backgroundColor: activeTab === tab.id ? '#FDB81308' : 'transparent',
+                    }}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
 
-            {/* Footer hint */}
-            <div className="px-4 py-2 border-t border-[#FDB813]/10 text-center">
-              <span className="text-[10px] font-mono text-gray-600">
-                Press L to toggle
-              </span>
+              {/* Content */}
+              <div className="p-3 sm:p-4 overflow-y-auto max-h-[calc(85vh-8rem)] sm:max-h-[calc(80vh-6rem)] scrollbar-thin overscroll-contain">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {activeTab === 'overview' && <OverviewTab />}
+                    {activeTab === 'achievements' && <AchievementsTab />}
+                    {activeTab === 'stats' && <StatsTab />}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Footer hint — desktop only (mobile has drag handle) */}
+              <div className="hidden sm:block px-4 py-2 border-t border-[#FDB813]/10 text-center">
+                <span className="text-[10px] font-mono text-gray-600">
+                  Press L to toggle
+                </span>
+              </div>
+
+              {/* Safe area padding on mobile for home indicator */}
+              <div className="sm:hidden h-[env(safe-area-inset-bottom,0px)]" />
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </>
       )}
     </AnimatePresence>
   );
