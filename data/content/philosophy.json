@@ -1,0 +1,74 @@
+[
+  {
+    "id": "philosophy-backend",
+    "type": "philosophy",
+    "label": "Why Backend?",
+    "description": "The invisible architecture",
+    "content": "## Why I Chose Backend Development\n\nFrontend is what users see. Backend is what makes it real.\n\nI'm drawn to the invisible architecture - the systems that process millions of requests, the databases that remember everything, the APIs that connect worlds.\n\nThere's poetry in a well-designed system. It's like building the engine of a car - no one sees it, but everyone depends on it.\n\n### The Appeal\n- **Complexity hidden behind simplicity**: A single API endpoint can orchestrate dozens of services\n- **Scale**: Handling millions of requests is a puzzle I love solving\n- **Permanence**: Backend systems often outlive their frontends\n\n> \"The best infrastructure is invisible. You only notice it when it breaks.\"\n\nThis philosophy shapes everything I build: reliable, scalable, elegant under the hood.",
+    "size": 1.5,
+    "discovered": false,
+    "locked": false,
+    "tags": ["philosophy", "career", "identity"],
+    "position": [-10, -12, 5]
+  },
+  {
+    "id": "philosophy-clean-code",
+    "type": "philosophy",
+    "label": "Clean Code",
+    "description": "What it really means",
+    "content": "## What \"Clean Code\" Really Means to Me\n\nClean code isn't about following rules. It's about empathy.\n\nWhen I write code, I imagine the person who will read it six months from now. Often, that person is me, and I've forgotten everything.\n\n### My Principles\n1. **Names matter more than comments**: A good name eliminates the need to explain\n2. **Small functions, single purpose**: If you need \"and\" to describe it, split it\n3. **Delete more than you write**: The best code is no code\n4. **Consistency over cleverness**: Boring is beautiful\n\n### The Real Test\nCan someone new understand this in 5 minutes? If not, I've failed.\n\n> \"Code is communication. Write it for humans first, computers second.\"\n\nThis isn't idealism - it's pragmatism. Clean code is fast code to change.",
+    "size": 1.4,
+    "discovered": false,
+    "locked": false,
+    "tags": ["philosophy", "craft", "methodology"],
+    "position": [-5, -15, -3]
+  },
+  {
+    "id": "philosophy-distributed",
+    "type": "philosophy",
+    "label": "Distributed Beauty",
+    "description": "The elegance of distributed systems",
+    "content": "## The Beauty of Distributed Systems\n\nThere's something profound about systems that work despite chaos.\n\nIn a distributed system, failure isn't exceptional - it's expected. Networks partition. Servers crash. Clocks drift. And yet, we build systems that heal, that continue, that serve.\n\n### What Fascinates Me\n- **Consensus algorithms**: How nodes agree without central authority\n- **Eventual consistency**: Accepting that \"now\" doesn't exist\n- **Fault tolerance**: Building reliability from unreliable parts\n\n### The CAP Theorem Isn't Limiting\nIt's liberating. It forces you to be explicit about trade-offs. Every system has constraints - distributed systems just make them visible.\n\n> \"A distributed system is one where a machine you've never heard of can cause your system to fail.\"\n> \u2014 Leslie Lamport\n\nThis reality isn't frustrating - it's fascinating. Building for it is the challenge.",
+    "size": 1.6,
+    "discovered": false,
+    "locked": false,
+    "tags": ["philosophy", "technical", "architecture"],
+    "position": [5, -18, 2]
+  },
+  {
+    "id": "philosophy-ai-future",
+    "type": "philosophy",
+    "label": "AI & The Future",
+    "description": "Thoughts on AI in development",
+    "content": "## AI and the Future of Development\n\nAI won't replace developers. But developers who use AI will replace those who don't.\n\n### My View\nAI is a tool, like any other. A very powerful one. It changes what's possible, not what's essential.\n\nWhat remains essential:\n- **System design**: AI can generate code, not architecture\n- **Problem understanding**: Knowing what to build matters more than how\n- **Judgment**: Deciding when NOT to build something\n- **Communication**: Software is a team sport\n\n### What Changes\n- Boilerplate becomes instant\n- Documentation becomes interactive\n- Learning curves flatten\n- More time for the interesting problems\n\n> \"The question isn't whether AI will change development. It's whether we'll let it make us lazy or elevate us to work on harder problems.\"\n\nI choose elevation.",
+    "size": 1.5,
+    "discovered": false,
+    "locked": false,
+    "tags": ["philosophy", "future", "ai"],
+    "position": [10, -15, -5]
+  },
+  {
+    "id": "philosophy-life-lessons",
+    "type": "philosophy",
+    "label": "Code & Life",
+    "description": "What programming taught me about life",
+    "content": "## What Programming Taught Me About Life\n\nCode is a mirror. How you code reflects how you think.\n\n### Lessons That Transfer\n1. **Debugging is life**: Problems rarely are what they first appear. Follow the evidence.\n\n2. **Premature optimization is the root of all evil**: In code and life, don't solve problems you don't have yet.\n\n3. **Version control**: The ability to try things, fail, and rollback is powerful. In code, it's Git. In life, it's resilience.\n\n4. **Dependencies matter**: You're only as good as what you depend on. Choose wisely.\n\n5. **Documentation is kindness**: To yourself and others. Write things down.\n\n### The Meta-Lesson\nProgramming taught me that complex systems emerge from simple rules. Life is the same. Small habits, compounded.\n\n> \"We are what we repeatedly do. Excellence, then, is not an act, but a habit.\"\n> \u2014 Aristotle (the original programmer)",
+    "size": 1.7,
+    "discovered": false,
+    "locked": false,
+    "tags": ["philosophy", "personal", "wisdom"],
+    "position": [-8, -18, -6]
+  },
+  {
+    "id": "philosophy-simplicity",
+    "type": "philosophy",
+    "label": "Simplicity",
+    "description": "The hardest thing to achieve",
+    "content": "## Simplicity Is Not Simple\n\nAnyone can build complex systems. Simplicity takes effort.\n\n### The Paradox\nIt's easier to add than to subtract. Every feature seems valuable in isolation. Simplicity requires saying no.\n\n### How I Pursue It\n- **Question every abstraction**: Does this earn its complexity?\n- **Delete aggressively**: If something isn't used, it shouldn't exist\n- **Resist \"just in case\"**: Build for today's needs, not imagined futures\n- **Read more than write**: Understanding existing systems prevents reinvention\n\n### The Test\nCan I explain this system to someone in 5 minutes? If not, it's too complex.\n\n> \"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.\"\n> \u2014 Antoine de Saint-Exup\u00e9ry\n\nEvery line of code is a liability. Simplicity is the ultimate sophistication.",
+    "size": 1.4,
+    "discovered": false,
+    "locked": false,
+    "tags": ["philosophy", "craft", "design"],
+    "position": [15, -10, 6]
+  }
+]

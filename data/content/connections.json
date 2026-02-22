@@ -1,0 +1,63 @@
+[
+  { "id": "c1", "from": "skill-java", "to": "project-enterprise-api", "label": "powers", "strength": 0.9, "bidirectional": false },
+  { "id": "c2", "from": "skill-java", "to": "project-data-migration", "label": "built with", "strength": 0.8, "bidirectional": false },
+  { "id": "c3", "from": "skill-java", "to": "philosophy-backend", "label": "embodies", "strength": 0.6, "bidirectional": false },
+
+  { "id": "c4", "from": "skill-spring-boot", "to": "project-enterprise-api", "label": "powers", "strength": 0.9, "bidirectional": false },
+  { "id": "c5", "from": "skill-spring-boot", "to": "project-data-migration", "label": "enables", "strength": 0.7, "bidirectional": false },
+  { "id": "c6", "from": "skill-spring-boot", "to": "skill-java", "label": "extends", "strength": 0.8, "bidirectional": false },
+
+  { "id": "c7", "from": "skill-php", "to": "project-apantos", "label": "powers", "strength": 0.9, "bidirectional": false },
+  { "id": "c8", "from": "skill-php", "to": "project-freelance-web", "label": "built with", "strength": 0.8, "bidirectional": false },
+  { "id": "c9", "from": "skill-php", "to": "philosophy-simplicity", "label": "taught", "strength": 0.5, "bidirectional": false },
+
+  { "id": "c10", "from": "skill-javascript", "to": "project-launchingmax-app", "label": "powers", "strength": 0.9, "bidirectional": false },
+  { "id": "c11", "from": "skill-javascript", "to": "project-portfolio", "label": "used in", "strength": 0.6, "bidirectional": false },
+
+  { "id": "c12", "from": "skill-mysql", "to": "project-apantos", "label": "stores", "strength": 0.7, "bidirectional": false },
+  { "id": "c13", "from": "skill-mysql", "to": "project-freelance-web", "label": "persists", "strength": 0.7, "bidirectional": false },
+  { "id": "c14", "from": "skill-mysql", "to": "project-enterprise-api", "label": "persists", "strength": 0.8, "bidirectional": false },
+
+  { "id": "c15", "from": "skill-redis", "to": "project-neshan-backend", "label": "caches", "strength": 0.9, "bidirectional": false },
+  { "id": "c16", "from": "skill-redis", "to": "skill-api-design", "label": "optimizes", "strength": 0.5, "bidirectional": false },
+
+  { "id": "c17", "from": "skill-docker", "to": "project-enterprise-api", "label": "deploys", "strength": 0.6, "bidirectional": false },
+  { "id": "c18", "from": "skill-docker", "to": "skill-linux", "label": "runs on", "strength": 0.7, "bidirectional": false },
+
+  { "id": "c19", "from": "skill-linux", "to": "philosophy-backend", "label": "enables", "strength": 0.5, "bidirectional": false },
+
+  { "id": "c20", "from": "skill-api-design", "to": "project-enterprise-api", "label": "defines", "strength": 0.8, "bidirectional": false },
+  { "id": "c21", "from": "skill-api-design", "to": "project-neshan-backend", "label": "shapes", "strength": 0.6, "bidirectional": false },
+  { "id": "c22", "from": "skill-api-design", "to": "philosophy-clean-code", "label": "applies", "strength": 0.7, "bidirectional": false },
+
+  { "id": "c23", "from": "skill-rabbitmq", "to": "project-enterprise-api", "label": "connects", "strength": 0.6, "bidirectional": false },
+  { "id": "c24", "from": "skill-rabbitmq", "to": "philosophy-distributed", "label": "enables", "strength": 0.5, "bidirectional": false },
+
+  { "id": "c25", "from": "skill-hibernate", "to": "skill-java", "label": "pairs with", "strength": 0.7, "bidirectional": true },
+  { "id": "c26", "from": "skill-hibernate", "to": "skill-mysql", "label": "maps to", "strength": 0.8, "bidirectional": false },
+
+  { "id": "c27", "from": "skill-git", "to": "project-apantos", "label": "tracks", "strength": 0.5, "bidirectional": false },
+
+  { "id": "c28", "from": "philosophy-backend", "to": "philosophy-distributed", "label": "leads to", "strength": 0.6, "bidirectional": false },
+  { "id": "c29", "from": "philosophy-backend", "to": "experience-navashgaran", "label": "shapes", "strength": 0.7, "bidirectional": false },
+  { "id": "c30", "from": "philosophy-clean-code", "to": "philosophy-simplicity", "label": "embodies", "strength": 0.8, "bidirectional": true },
+  { "id": "c31", "from": "philosophy-ai-future", "to": "project-portfolio", "label": "inspired", "strength": 0.5, "bidirectional": false },
+  { "id": "c32", "from": "philosophy-life-lessons", "to": "philosophy-simplicity", "label": "teaches", "strength": 0.6, "bidirectional": false },
+
+  { "id": "c33", "from": "experience-freelance", "to": "experience-launchingmax", "label": "grew into", "strength": 0.7, "bidirectional": false },
+  { "id": "c34", "from": "experience-launchingmax", "to": "experience-neshan", "label": "led to", "strength": 0.8, "bidirectional": false },
+  { "id": "c35", "from": "experience-neshan", "to": "experience-navashgaran", "label": "evolved to", "strength": 0.9, "bidirectional": false },
+  { "id": "c36", "from": "experience-education", "to": "experience-freelance", "label": "started", "strength": 0.8, "bidirectional": false },
+
+  { "id": "c37", "from": "project-apantos", "to": "project-freelance-web", "label": "powers", "strength": 0.7, "bidirectional": false },
+  { "id": "c38", "from": "project-enterprise-api", "to": "project-data-migration", "label": "connects", "strength": 0.6, "bidirectional": false },
+
+  { "id": "c39", "from": "project-portfolio", "to": "philosophy-life-lessons", "label": "expresses", "strength": 0.7, "bidirectional": false },
+  { "id": "c40", "from": "project-portfolio", "to": "experience-navashgaran", "label": "showcases", "strength": 0.6, "bidirectional": false },
+
+  { "id": "c41", "from": "secret-doubt", "to": "secret-imposter", "label": "feeds", "strength": 0.8, "bidirectional": true },
+  { "id": "c42", "from": "secret-failure", "to": "secret-motivation", "label": "drives", "strength": 0.7, "bidirectional": false },
+  { "id": "c43", "from": "secret-imposter", "to": "experience-navashgaran", "label": "shadows", "strength": 0.5, "bidirectional": false },
+  { "id": "c44", "from": "secret-rabbit-hole", "to": "core-self", "label": "leads to", "strength": 1.0, "bidirectional": false },
+  { "id": "c45", "from": "secret-motivation", "to": "philosophy-backend", "label": "drives", "strength": 0.6, "bidirectional": false }
+]

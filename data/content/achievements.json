@@ -1,0 +1,136 @@
+[
+  {
+    "id": "first-contact",
+    "name": "First Contact",
+    "description": "Click your first node",
+    "icon": "\ud83d\udc46",
+    "condition": "nodes:1",
+    "unlocked": false
+  },
+  {
+    "id": "explorer",
+    "name": "Explorer",
+    "description": "Discover 10 nodes",
+    "icon": "\ud83d\udd0d",
+    "condition": "nodes:10",
+    "unlocked": false,
+    "reward": "Unlocks philosophy nodes"
+  },
+  {
+    "id": "cartographer",
+    "name": "Cartographer",
+    "description": "Discover 50% of all nodes",
+    "icon": "\ud83d\uddfa\ufe0f",
+    "condition": "nodes:15",
+    "unlocked": false,
+    "reward": "Reveals hidden paths"
+  },
+  {
+    "id": "hacker",
+    "name": "Hacker",
+    "description": "Use the terminal 10 times",
+    "icon": "\ud83d\udcbb",
+    "condition": "terminal:10",
+    "unlocked": false,
+    "reward": "Unlocks hack command"
+  },
+  {
+    "id": "philosopher",
+    "name": "Philosopher",
+    "description": "Read all philosophy nodes",
+    "icon": "\ud83e\udd14",
+    "condition": "philosophy:6",
+    "unlocked": false,
+    "reward": "Unlocks \"The Question\""
+  },
+  {
+    "id": "archaeologist",
+    "name": "Archaeologist",
+    "description": "Find 3 secret nodes",
+    "icon": "\ud83c\udfa8",
+    "condition": "secrets:3",
+    "unlocked": false,
+    "reward": "Hints to The Core"
+  },
+  {
+    "id": "completionist",
+    "name": "Completionist",
+    "description": "Discover everything",
+    "icon": "\ud83c\udfc6",
+    "condition": "nodes:30",
+    "unlocked": false,
+    "reward": "True ending"
+  },
+  {
+    "id": "speed-reader",
+    "name": "Speed Reader",
+    "description": "View 5 nodes in under a minute",
+    "icon": "\u26a1",
+    "condition": "speed:5",
+    "unlocked": false
+  },
+  {
+    "id": "night-owl",
+    "name": "Night Owl",
+    "description": "Visit between midnight and 5am",
+    "icon": "\ud83e\udd89",
+    "condition": "time:1",
+    "unlocked": false
+  },
+  {
+    "id": "connection-master",
+    "name": "Connection Master",
+    "description": "Follow 10 connections between nodes",
+    "icon": "\ud83d\udd17",
+    "condition": "connections:10",
+    "unlocked": false
+  },
+  {
+    "id": "planetary-survey",
+    "name": "Planetary Survey",
+    "description": "Visit all 5 planets (companies)",
+    "icon": "\ud83c\udf0d",
+    "condition": "planets:5",
+    "unlocked": false
+  },
+  {
+    "id": "station-hopper",
+    "name": "Station Hopper",
+    "description": "Visit all 7 project stations",
+    "icon": "\ud83d\ude80",
+    "condition": "projects:7",
+    "unlocked": false
+  },
+  {
+    "id": "stargazer",
+    "name": "Stargazer",
+    "description": "Discover all 6 nebulae",
+    "icon": "\ud83c\udf0c",
+    "condition": "nebulae:6",
+    "unlocked": false
+  },
+  {
+    "id": "terminal-addict",
+    "name": "Terminal Addict",
+    "description": "Use the terminal 25 times",
+    "icon": "\u2328\ufe0f",
+    "condition": "terminal:25",
+    "unlocked": false
+  },
+  {
+    "id": "return-visitor",
+    "name": "Return Visitor",
+    "description": "Come back for a second session",
+    "icon": "\ud83d\udd04",
+    "condition": "visits:2",
+    "unlocked": false
+  },
+  {
+    "id": "sun-worshipper",
+    "name": "Sun Worshipper",
+    "description": "Click the sun at the center",
+    "icon": "\u2600\ufe0f",
+    "condition": "sun:1",
+    "unlocked": false
+  }
+]

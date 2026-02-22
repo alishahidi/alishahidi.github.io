@@ -1,0 +1,67 @@
+[
+  {
+    "id": "experience-navashgaran",
+    "type": "experience",
+    "label": "Navashgaran",
+    "description": "Enterprise-scale Java development",
+    "content": "## Java Software Developer\n\n**Navashgaran Asr Parseh | February 2023 - Present**\n\nMy current role and the culmination of years of backend experience.\n\n### Responsibilities\n- Developing, maintaining, and optimizing backend services with Java and Spring Boot at enterprise scale\n- Designing and building RESTful APIs for high-traffic systems\n- Contributing to layered architecture and service-oriented designs\n- Taking a key role in data migration from legacy systems to new architectures\n- Collaborating closely with backend, database, and infrastructure teams\n- Participating in code reviews, technical decision-making, and guiding junior and mid-level developers\n- Leading technical aspects of projects, focusing on scalable, stable, and maintainable production systems\n\n### Growth\nThis role taught me what it means to build software that organizations depend on. It's not just about writing code — it's about building systems that can be trusted.\n\n> \"The best systems are the ones that work so well, nobody notices them.\"",
+    "size": 2.0,
+    "discovered": false,
+    "locked": false,
+    "tags": ["experience", "career", "current", "java"],
+    "year": 2023,
+    "position": [-20, 10, 0]
+  },
+  {
+    "id": "experience-neshan",
+    "type": "experience",
+    "label": "Neshan Maps",
+    "description": "Backend internship at scale",
+    "content": "## Backend Developer (Intern)\n\n**Neshan Maps | July 2022 - October 2022**\n\nWorking at one of Iran's leading map platforms was a turning point in my career.\n\n### What I Did\n- Worked in a backend team contributing to the development of backend services for real product projects\n- Gained hands-on experience with microservices architecture\n- Worked with Redis for caching and data management\n- Participated in a backend bootcamp learning professional software development processes\n\n### The Impact\nNeshan showed me what production-grade backend systems look like at scale. The bootcamp and working with experienced engineers accelerated my growth immensely.\n\n> \"The best way to learn is to work alongside people who are better than you.\"",
+    "size": 1.5,
+    "discovered": false,
+    "locked": false,
+    "tags": ["experience", "career", "internship", "maps"],
+    "year": 2022,
+    "position": [-22, 5, 4]
+  },
+  {
+    "id": "experience-launchingmax",
+    "type": "experience",
+    "label": "LaunchingMax",
+    "description": "Frontend development role",
+    "content": "## Software Developer (Frontend Focus)\n\n**LaunchingMax | December 2021 - February 2022**\n\nA brief but valuable experience on the other side of the stack.\n\n### What I Did\n- Developed web applications with organizational back-end systems using React.js, HTML5, and JavaScript\n- Implemented UI components and integrated them with backend APIs\n- Worked closely with the backend team in a team-oriented environment\n- Optimized user experience (UX/UI) and contributed to the product development process\n\n### The Lesson\nWorking on the frontend gave me empathy for the people who consume my APIs. Understanding how frontends work makes me a better backend developer.\n\n> \"To build a great backend, you need to understand who's on the other side of it.\"",
+    "size": 1.2,
+    "discovered": false,
+    "locked": false,
+    "tags": ["experience", "career", "frontend"],
+    "year": 2021,
+    "position": [-25, 0, -2]
+  },
+  {
+    "id": "experience-freelance",
+    "type": "experience",
+    "label": "Freelance",
+    "description": "Independent PHP development",
+    "content": "## PHP Developer (Freelancer)\n\n**Various Projects | February 2019 - January 2022**\n\nWhere my professional journey began — building real projects for real clients.\n\n### What I Built\n- Web applications and backend systems using PHP and Laravel\n- Backend logic and database interactions from scratch\n- MVC architecture and modular, maintainable systems\n- Frontend UI with CSS, HTML, and Bootstrap\n- **Apantos** — a custom PHP framework focused on security, modularity, and ease of development\n- Led independent projects from requirement analysis to final delivery\n\n### The Foundation\nFreelancing taught me everything that no course could: client communication, project management, deadline pressure, and the responsibility of owning every line of code.\n\n> \"Freelancing is the fastest way to learn because every mistake costs you directly.\"",
+    "size": 1.6,
+    "discovered": false,
+    "locked": false,
+    "tags": ["experience", "career", "freelance", "php"],
+    "year": 2019,
+    "position": [-18, -5, -6]
+  },
+  {
+    "id": "experience-education",
+    "type": "experience",
+    "label": "Education",
+    "description": "Computer Engineering degree",
+    "content": "## Education\n\n### Khayyam University, Mashhad\n**Bachelor's in Computer Engineering** (2021 - 2024)\nLeft due to migration to Tehran.\n\n### Azad University\n**Bachelor's in Computer Engineering** (2025 - Currently Studying)\n\n### What I Learned\nComputer Engineering fundamentals that still serve me:\n- Algorithms and data structures\n- Operating systems\n- Database theory\n- Networks and protocols\n- Software engineering principles\n\n### Beyond The Classroom\nThe real education never stopped:\n- System design from real-world experience\n- New languages from documentation and projects\n- Best practices from code reviews and mentorship\n\n> \"Education is not the filling of a pail, but the lighting of a fire.\"\n> — W.B. Yeats\n\nI've been familiar with programming for many years, and over time, this journey has become not just a technical skill but a way of life and thought.",
+    "size": 1.3,
+    "discovered": false,
+    "locked": false,
+    "tags": ["experience", "education", "learning"],
+    "year": 2021,
+    "position": [-12, 12, 3]
+  }
+]
