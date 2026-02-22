@@ -141,22 +141,22 @@ export function HUD() {
         </motion.div>
       </div>
 
-      {/* Bottom guidance — auto-hides after first click */}
+      {/* Center guidance — auto-hides after first click */}
       <AnimatePresence>
         {showGuidance && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: 10 }}
+            exit={{ opacity: 0 }}
             transition={{ delay: 1.5 }}
-            className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center pointer-events-none w-[calc(100%-2rem)] sm:w-auto"
+            className="fixed inset-0 flex items-center justify-center pointer-events-none z-20"
           >
-            <div className="bg-black/60 backdrop-blur-sm border border-[#FDB813]/20 rounded-lg px-3 sm:px-4 py-2">
-              <p className="text-[#FDB813]/70 font-mono text-[10px] sm:text-xs">
-                Click any planet, moon, or station to explore
+            <div className="bg-black/50 backdrop-blur-sm border border-[#FDB813]/15 rounded-lg px-4 py-2.5 text-center">
+              <p className="text-[#FDB813]/60 font-mono text-[10px] sm:text-xs">
+                Click any planet, moon, or station
               </p>
-              <p className="text-gray-500 font-mono text-[10px] sm:text-[11px] mt-1">
-                Drag to orbit | Scroll to zoom | Press ? for help
+              <p className="text-gray-600 font-mono text-[9px] sm:text-[10px] mt-0.5">
+                Drag to orbit &middot; Scroll to zoom
               </p>
             </div>
           </motion.div>
