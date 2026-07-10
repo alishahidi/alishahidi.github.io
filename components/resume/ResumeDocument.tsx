@@ -3,6 +3,7 @@ import { resume, type ResumeLang } from '@/data/resume';
 const ACCENT = '#b97a1e';
 const MUTED = '#5b6670';
 const HAIRLINE = '#ddd6c8';
+const INK = '#2a323a';
 
 function SectionTitle({ children, fa }: { children: React.ReactNode; fa: boolean }) {
   return (
@@ -33,10 +34,7 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
       }`}
     >
       {/* header */}
-      <header
-        className="pb-6 mb-7 border-b"
-        style={{ borderColor: HAIRLINE }}
-      >
+      <header className="pb-6 mb-7 border-b" style={{ borderColor: HAIRLINE }}>
         <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
           <h1 className="flex items-center gap-2.5 text-[32px] leading-none font-black tracking-tight">
             <span
@@ -57,11 +55,7 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
           style={{ color: MUTED }}
         >
           <li>
-            <a
-              href={r.contact.websiteUrl}
-              className="font-semibold hover:underline"
-              style={{ color: ACCENT }}
-            >
+            <a href={r.contact.websiteUrl} className="font-semibold hover:underline" style={{ color: ACCENT }}>
               {r.contact.website}
             </a>
           </li>
@@ -93,7 +87,7 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
               <p
                 key={i}
                 className="text-[12.5px] leading-[1.75] mb-2.5 last:mb-0 text-justify"
-                style={{ color: '#2a323a' }}
+                style={{ color: INK }}
               >
                 {p}
               </p>
@@ -107,34 +101,21 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
                 <article key={job.company + job.role} style={{ breakInside: 'avoid' }}>
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4">
                     <h3 className="text-[13.5px] font-bold">{job.role}</h3>
-                    <p
-                      className={`text-[11px] ${fa ? '' : 'font-mono'}`}
-                      style={{ color: MUTED }}
-                    >
+                    <p className={`text-[11px] ${fa ? '' : 'font-mono'}`} style={{ color: MUTED }}>
                       {job.period}
                     </p>
                   </div>
-                  <p
-                    className="text-[12px] font-semibold mt-0.5"
-                    style={{ color: ACCENT }}
-                  >
+                  <p className="text-[12px] font-semibold mt-0.5" style={{ color: ACCENT }}>
                     {job.company}
                   </p>
                   <ul className="mt-2 space-y-1 ps-4 list-disc marker:text-[10px]">
                     {job.bullets.map((b, i) => (
-                      <li
-                        key={i}
-                        className="text-[12px] leading-[1.65]"
-                        style={{ color: '#2a323a' }}
-                      >
+                      <li key={i} className="text-[12px] leading-[1.65]" style={{ color: INK }}>
                         {b}
                       </li>
                     ))}
                   </ul>
-                  <p
-                    className={`mt-1.5 text-[10.5px] ${fa ? '' : 'font-mono'}`}
-                    style={{ color: MUTED }}
-                  >
+                  <p className={`mt-1.5 text-[10.5px] ${fa ? '' : 'font-mono'}`} style={{ color: MUTED }}>
                     {r.labels.skillsUsed}: {job.skills.join(' · ')}
                   </p>
                 </article>
@@ -143,18 +124,59 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
           </section>
         </div>
 
-        {/* side column */}
+        {/* side column — Personal, Technical Skills, Strengths, Education, Languages */}
         <aside className="mt-7 sm:mt-0">
           <section className="mt-7 first:mt-0" style={{ breakInside: 'avoid' }}>
+            <SectionTitle fa={fa}>{r.labels.personal}</SectionTitle>
+            <ul className="space-y-1.5">
+              {r.personal.map((s) => (
+                <li key={s} className="text-[12px] leading-snug" style={{ color: INK }}>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-7 first:mt-0">
             <SectionTitle fa={fa}>{r.labels.skills}</SectionTitle>
-            <ul className="flex flex-wrap gap-1.5">
-              {r.skills.map((s) => (
-                <li
-                  key={s}
-                  dir="ltr"
-                  className="rounded-sm border px-1.5 py-0.5 text-[10.5px] font-mono"
-                  style={{ borderColor: HAIRLINE, color: '#2a323a' }}
-                >
+            <div className="space-y-3">
+              {r.skillGroups.map((group) => (
+                <div key={group.label} style={{ breakInside: 'avoid' }}>
+                  <h4
+                    className={`text-[10.5px] font-bold mb-1 ${fa ? '' : 'font-mono'}`}
+                    style={{ color: '#3a4048' }}
+                  >
+                    {group.label}
+                  </h4>
+                  <ul className="flex flex-wrap gap-1">
+                    {group.items.map((s) => (
+                      <li
+                        key={s}
+                        className="rounded-sm border px-1.5 py-[1px] text-[10px] leading-normal"
+                        style={{ borderColor: HAIRLINE, color: INK }}
+                      >
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                  {group.note && (
+                    <p className="mt-1 text-[10px] leading-snug italic" style={{ color: MUTED }}>
+                      {group.note}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-7 first:mt-0" style={{ breakInside: 'avoid' }}>
+            <SectionTitle fa={fa}>{r.labels.softSkills}</SectionTitle>
+            <ul className="space-y-1.5">
+              {r.softSkills.map((s) => (
+                <li key={s} className="text-[12px] leading-snug flex gap-2" style={{ color: INK }}>
+                  <span aria-hidden="true" style={{ color: ACCENT }}>
+                    —
+                  </span>
                   {s}
                 </li>
               ))}
@@ -170,10 +192,7 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
                   <p className="text-[11.5px] mt-0.5" style={{ color: ACCENT }}>
                     {edu.school}
                   </p>
-                  <p
-                    className={`text-[10.5px] mt-0.5 ${fa ? '' : 'font-mono'}`}
-                    style={{ color: MUTED }}
-                  >
+                  <p className={`text-[10.5px] mt-0.5 ${fa ? '' : 'font-mono'}`} style={{ color: MUTED }}>
                     {edu.period}
                   </p>
                   {edu.note && (
@@ -187,47 +206,10 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
           </section>
 
           <section className="mt-7 first:mt-0" style={{ breakInside: 'avoid' }}>
-            <SectionTitle fa={fa}>{r.labels.softSkills}</SectionTitle>
-            <ul className="space-y-1.5">
-              {r.softSkills.map((s) => (
-                <li
-                  key={s}
-                  className="text-[12px] leading-snug flex gap-2"
-                  style={{ color: '#2a323a' }}
-                >
-                  <span aria-hidden="true" style={{ color: ACCENT }}>
-                    —
-                  </span>
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="mt-7 first:mt-0" style={{ breakInside: 'avoid' }}>
             <SectionTitle fa={fa}>{r.labels.languages}</SectionTitle>
             <ul className="space-y-1.5">
               {r.languages.map((s) => (
-                <li
-                  key={s}
-                  className="text-[12px] leading-snug"
-                  style={{ color: '#2a323a' }}
-                >
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="mt-7 first:mt-0" style={{ breakInside: 'avoid' }}>
-            <SectionTitle fa={fa}>{r.labels.personal}</SectionTitle>
-            <ul className="space-y-1.5">
-              {r.personal.map((s) => (
-                <li
-                  key={s}
-                  className="text-[12px] leading-snug"
-                  style={{ color: '#2a323a' }}
-                >
+                <li key={s} className="text-[12px] leading-snug" style={{ color: INK }}>
                   {s}
                 </li>
               ))}
@@ -235,6 +217,33 @@ export function ResumeDocument({ lang }: { lang: ResumeLang }) {
           </section>
         </aside>
       </div>
+
+      {/* Selected Projects — full width */}
+      <section className="mt-8">
+        <SectionTitle fa={fa}>{r.labels.projects}</SectionTitle>
+        <p className="-mt-1 mb-4 text-[10.5px] italic" style={{ color: MUTED }}>
+          {r.labels.projectsNote}
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-9 gap-y-4">
+          {r.projects.map((p) => (
+            <article
+              key={p.title}
+              className="border-t pt-2.5"
+              style={{ breakInside: 'avoid', borderColor: HAIRLINE }}
+            >
+              <h3 className="text-[12.5px] font-bold leading-snug" style={{ color: '#1d2429' }}>
+                {p.title}
+              </h3>
+              <p className="mt-1 text-[11.5px] leading-[1.6] text-justify" style={{ color: INK }}>
+                {p.description}
+              </p>
+              <p dir="ltr" className="mt-1.5 text-[10px] font-mono leading-snug" style={{ color: MUTED }}>
+                {p.stack.join(' · ')}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

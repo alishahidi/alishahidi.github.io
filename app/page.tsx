@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { HeroSun } from '@/components/home/HeroSun';
-import { resumePdfPaths } from '@/data/resume';
+import { resume, resumePdfPaths } from '@/data/resume';
 
 const EMAIL = 'alishahidi1376@gmail.com';
 const GITHUB = 'https://github.com/alishahidi';
@@ -323,31 +323,21 @@ function Experience() {
 
 /* ---------------------------------------------------------- work */
 
-const PROJECTS = [
-  {
-    name: 'Apantos Framework',
-    desc: 'A custom PHP framework built from scratch — MVC, a middleware pipeline, and security by default, not bolted on. Building it taught me what frameworks actually do.',
-    stack: 'PHP · MySQL',
-    href: GITHUB,
-    external: true,
-  },
-  {
-    name: 'Enterprise REST APIs',
-    desc: 'High-traffic RESTful services for enterprise clients: a versioning strategy, layered architecture, and backward compatibility treated as a design constraint.',
-    stack: 'Java · Spring Boot · Oracle',
-  },
-  {
-    name: 'Data Migration Platform',
-    desc: 'Moving decades of legacy data to modern systems with zero loss: an incremental strategy, validation pipelines, and a rollback plan at every stage.',
-    stack: 'Java · Spring Boot · Oracle · MySQL',
-  },
-];
+const PROJECTS = resume.en.projects.map((p) => ({
+  name: p.title,
+  desc: p.description,
+  stack: p.stack.join(' · '),
+}));
 
 function Work() {
   return (
     <section className="border-t border-white/5">
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <SectionHeading id="work" index="03" eyebrow="asteroid field" title="Selected work" />
+        <p className="-mt-8 mb-12 max-w-2xl font-mono text-[13px] leading-relaxed text-deep-grey">
+          Most of these are private / under NDA — described at a high level, without
+          client or product names.
+        </p>
 
         {/* featured: the explorer */}
         <Link
@@ -378,41 +368,19 @@ function Work() {
           </div>
         </Link>
 
-        <div className="grid gap-5 sm:grid-cols-3">
-          {PROJECTS.map((p) => {
-            const inner = (
-              <>
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-display text-lg font-semibold text-starlight transition-colors group-hover:text-plasma">
-                    {p.name}
-                  </h3>
-                  {p.href && (
-                    <span className="font-mono text-sm text-deep-grey transition-colors group-hover:text-plasma" aria-hidden="true">
-                      ↗
-                    </span>
-                  )}
-                </div>
-                <p className="mt-3 text-[15px] leading-relaxed text-stardust">{p.desc}</p>
-                <p className="mt-5 font-mono text-[12px] text-deep-grey">{p.stack}</p>
-              </>
-            );
-            const cls =
-              'group block rounded-xl border border-white/10 bg-orbit/40 p-6 transition-colors hover:border-plasma/50';
-            return p.href ? (
-              <a
-                key={p.name}
-                href={p.href}
-                className={cls}
-                {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              >
-                {inner}
-              </a>
-            ) : (
-              <div key={p.name} className={cls}>
-                {inner}
-              </div>
-            );
-          })}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((p) => (
+            <div
+              key={p.name}
+              className="group flex flex-col rounded-xl border border-white/10 bg-orbit/40 p-6 transition-colors hover:border-plasma/50"
+            >
+              <h3 className="font-display text-lg font-semibold leading-snug text-starlight transition-colors group-hover:text-plasma">
+                {p.name}
+              </h3>
+              <p className="mt-3 flex-1 text-[15px] leading-relaxed text-stardust">{p.desc}</p>
+              <p className="mt-5 font-mono text-[12px] leading-relaxed text-deep-grey">{p.stack}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -422,10 +390,10 @@ function Work() {
 /* ---------------------------------------------------------- stack */
 
 const STACK: Array<[string, string[]]> = [
-  ['languages & frameworks', ['Java', 'Spring Boot', 'Hibernate', 'PHP · Laravel', 'JavaScript · React', 'Python (tooling)']],
-  ['data & messaging', ['Oracle', 'MySQL', 'Redis', 'RabbitMQ', 'Data Migration']],
-  ['infrastructure', ['Linux', 'Docker', 'Git', 'CI/CD']],
-  ['practices', ['System Design', 'RESTful APIs', 'Multithreading', 'Unit Testing', 'Code Review']],
+  ['languages & frameworks', ['Java', 'Spring Boot', 'Spring Cloud', 'Hibernate / JPA', 'PHP · Laravel', 'TypeScript · React']],
+  ['data & messaging', ['PostgreSQL · PostGIS', 'Oracle · PL/SQL', 'Redis', 'Kafka · RabbitMQ', 'Elasticsearch · ClickHouse']],
+  ['architecture', ['Microservices', 'Event-driven', 'API gateway', 'Domain-driven design', 'gRPC · REST']],
+  ['infrastructure', ['Linux', 'Docker · Kubernetes', 'Proxmox · ESXi', 'MikroTik', 'CI/CD · Git']],
 ];
 
 function Stack() {

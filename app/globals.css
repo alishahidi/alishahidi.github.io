@@ -284,8 +284,13 @@ body {
 }
 
 @media print {
+  html,
   body {
     background: #ffffff !important;
+  }
+  /* the fixed cosmic starfield must never paint into a printed page */
+  .site-starfield {
+    display: none !important;
   }
   .print-hidden {
     display: none !important;

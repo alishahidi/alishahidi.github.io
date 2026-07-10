@@ -132,7 +132,7 @@ export function Starfield() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      className="site-starfield pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       style={{
         background:
           'radial-gradient(ellipse 120% 90% at 50% -10%, #0B1024 0%, #070B1A 45%, #050712 70%, #03040A 100%)',
