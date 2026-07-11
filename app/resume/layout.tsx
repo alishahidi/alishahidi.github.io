@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Résumé of Ali Shahidi — Backend Developer (Java & Spring Boot). Available in English and Persian, viewable as HTML or downloadable as PDF.',
   alternates: {
-    canonical: 'https://alishahidi.github.io/resume',
+    canonical: 'https://alishahidi.net/resume',
   },
 };
 

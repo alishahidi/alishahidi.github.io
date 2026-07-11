@@ -43,7 +43,7 @@ export async function generateMetadata({
       title,
       description,
       type: 'website',
-      url: `https://alishahidi.github.io/node/${node.id}`,
+      url: `https://alishahidi.net/node/${node.id}`,
       siteName: 'Ali Shahidi - Backend Developer',
       images: [
         {
@@ -61,7 +61,7 @@ export async function generateMetadata({
       images: ['/og-image.png'],
     },
     alternates: {
-      canonical: `https://alishahidi.github.io/node/${node.id}`,
+      canonical: `https://alishahidi.net/node/${node.id}`,
     },
   };
 }

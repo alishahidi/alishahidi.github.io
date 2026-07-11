@@ -69,8 +69,8 @@ export const resume: Record<ResumeLang, ResumeContent> = {
     name: 'Ali Shahidi',
     title: 'Backend Developer — Java & Spring Boot',
     contact: {
-      website: 'alishahidi.github.io',
-      websiteUrl: 'https://alishahidi.github.io',
+      website: 'alishahidi.net',
+      websiteUrl: 'https://alishahidi.net',
       email: 'alishahidi1376@gmail.com',
       phone: '+989354162611',
       phoneDisplay: '+98 935 416 2611',
@@ -286,8 +286,8 @@ export const resume: Record<ResumeLang, ResumeContent> = {
     name: 'علی شهیدی',
     title: 'توسعه‌دهنده بک‌اند — Java و Spring Boot',
     contact: {
-      website: 'alishahidi.github.io',
-      websiteUrl: 'https://alishahidi.github.io',
+      website: 'alishahidi.net',
+      websiteUrl: 'https://alishahidi.net',
       email: 'alishahidi1376@gmail.com',
       phone: '+989354162611',
       phoneDisplay: '+98 935 416 2611',

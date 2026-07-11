@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Explore Ali Shahidi’s skills, projects, and experience as an interactive solar system — with a terminal, achievements, and hidden depths.',
   alternates: {
-    canonical: 'https://alishahidi.github.io/explore',
+    canonical: 'https://alishahidi.net/explore',
   },
 };
 

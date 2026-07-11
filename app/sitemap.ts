@@ -3,7 +3,7 @@ import { skillNodes, projectNodes, philosophyNodes, experienceNodes } from '@/da
 
 export const dynamic = 'force-static';
 
-const baseUrl = 'https://alishahidi.github.io';
+const baseUrl = 'https://alishahidi.net';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const allNodes = [

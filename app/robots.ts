@@ -11,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/resume/print/'],
       },
     ],
-    sitemap: 'https://alishahidi.github.io/sitemap.xml',
+    sitemap: 'https://alishahidi.net/sitemap.xml',
   };
 }

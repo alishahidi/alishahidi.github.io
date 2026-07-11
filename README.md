@@ -1,22 +1,22 @@
-# alishahidi.github.io
+# alishahidi.net
 
 Personal site of **Ali Shahidi** — Backend Developer (Java & Spring Boot).
 
-Live at [alishahidi.github.io](https://alishahidi.github.io).
+Live at [alishahidi.net](https://alishahidi.net).
 
 ## Pages
 
 | Route | What it is |
 | --- | --- |
-| `/` | Portfolio — hero with a live service-topology diagram, experience as a commit log, projects, stack, contact |
+| `/` | Portfolio — cosmic hero with an animated Sun, experience, selected projects, stack, contact |
 | `/resume` | Résumé in HTML, switchable between **English** and **فارسی** (RTL), with PDF download and print support |
-| `/explore` | The interactive 3D solar-system portfolio (Three.js) — terminal, achievements, easter eggs |
+| `/explore` | The interactive solar-system portfolio (Three.js) — terminal, achievements, easter eggs |
 
 ## Stack
 
 Next.js (static export) · React · Tailwind CSS v4 · Three.js / react-three-fiber (explorer) · Zustand
 
-Fonts: Archivo (display/body) · IBM Plex Mono (utility) · Vazirmatn (Persian).
+Fonts: Space Grotesk (display) · Manrope (body) · JetBrains Mono (utility) · Vazirmatn (Persian).
 
 ## Development
 
@@ -47,5 +47,6 @@ Résumé content is defined once, bilingually, in `data/resume.ts`.
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the
-static export and publishes it to GitHub Pages.
+Hosted on **Cloudflare Pages**, connected to this repository. Every push to
+`main` triggers a build (`npm run build`) and publishes the static export from
+`out/`. The custom domain `alishahidi.net` is served through Cloudflare.

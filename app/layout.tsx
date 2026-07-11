@@ -27,7 +27,7 @@ const vazirmatn = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://alishahidi.github.io'),
+  metadataBase: new URL('https://alishahidi.net'),
   title: {
     default: 'Ali Shahidi — Backend Developer',
     template: '%s — Ali Shahidi',
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     'Backend Architecture',
     'Data Migration',
   ],
-  authors: [{ name: 'Ali Shahidi', url: 'https://alishahidi.github.io' }],
+  authors: [{ name: 'Ali Shahidi', url: 'https://alishahidi.net' }],
   creator: 'Ali Shahidi',
   publisher: 'Ali Shahidi',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://alishahidi.github.io',
+    url: 'https://alishahidi.net',
     title: 'Ali Shahidi — Backend Developer',
     description:
       'Backend developer specializing in Java, Spring Boot, and enterprise systems. Services that organizations can lean on.',
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://alishahidi.github.io',
+    canonical: 'https://alishahidi.net',
   },
 };
 
@@ -108,7 +108,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Ali Shahidi',
-  url: 'https://alishahidi.github.io',
+  url: 'https://alishahidi.net',
   jobTitle: 'Backend Developer',
   description:
     'Backend developer specializing in Java, Spring Boot, and enterprise systems.',

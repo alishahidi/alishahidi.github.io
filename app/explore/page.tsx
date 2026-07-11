@@ -159,7 +159,7 @@ function ExploreContent() {
         href="/"
         className="fixed bottom-4 left-4 z-50 font-mono text-xs text-[#FDB813]/70 hover:text-[#FDB813] border border-[#FDB813]/40 hover:border-[#FDB813] rounded px-3 py-1.5 bg-[#060814]/60 backdrop-blur-sm transition-colors"
       >
-        ← exit to alishahidi.github.io
+        ← exit to alishahidi.net
       </Link>
     </main>
   );
