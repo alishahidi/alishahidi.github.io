@@ -33,7 +33,9 @@ export function MiniMap() {
       {/* Toggle button */}
       <button
         onClick={toggleMiniMap}
-        className="fixed bottom-4 right-4 z-40 px-3 py-1.5
+        title="Toggle the orbital minimap (M)"
+        aria-label="Toggle orbital minimap"
+        className="fixed bottom-4 right-4 z-40 grid min-h-9 place-items-center px-3 py-1.5
           bg-black/50 backdrop-blur-sm border border-[#FDB813]/30 rounded
           text-[#FDB813] font-mono text-xs hover:bg-[#FDB813]/10 hover:border-[#FDB813]/50
           transition-all"
@@ -60,6 +62,7 @@ export function MiniMap() {
                 </span>
                 <button
                   onClick={toggleMiniMap}
+                  aria-label="Close minimap"
                   className="text-[#FDB813]/75 hover:text-[#FDB813] text-xs"
                 >
                   [x]

@@ -311,7 +311,8 @@ export function CameraController({
       maxDistance={maxDistance}
       enablePan={false}
       rotateSpeed={0.7}
-      zoomSpeed={1.8}
+      zoomSpeed={1.1}
+      touches={{ ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_ROTATE }}
       makeDefault
     />
   );

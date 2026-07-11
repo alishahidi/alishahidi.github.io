@@ -108,12 +108,14 @@ export function Planet({
         </mesh>
       )}
 
-      {/* Label */}
+      {/* Label — planet name is always on (occluded + z-ordered); the
+          description only appears when the planet is active, to cut clutter */}
       <Html
         position={[0, config.size + 1.2, 0]}
         center
         distanceFactor={40}
         occlude
+        zIndexRange={[40, 10]}
         style={{ pointerEvents: 'none' }}
       >
         <div className="text-center whitespace-nowrap pointer-events-none select-none">
@@ -128,9 +130,9 @@ export function Planet({
           >
             {config.name}
           </span>
-          {config.description && (
+          {config.description && (isSelected || isHovered) && (
             <div
-              className="font-mono text-[10px] mt-0.5 opacity-60"
+              className="font-mono text-[10px] mt-0.5 opacity-70"
               style={{ color: config.color }}
             >
               {config.description}
@@ -147,6 +149,7 @@ export function Planet({
           planetId={config.id}
           isSelected={selectedMoonId === moon.nodeId}
           isHovered={hoveredMoonId === moon.nodeId}
+          parentActive={isSelected || isHovered}
           onClick={() => onMoonClick(moon.nodeId, config.id)}
           onHover={(h) => onMoonHover(h ? moon.nodeId : null)}
         />

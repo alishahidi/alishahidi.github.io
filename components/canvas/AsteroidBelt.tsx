@@ -164,26 +164,30 @@ function ProjectStation({
         />
       </mesh>
 
-      {/* Label */}
-      <Html
-        position={[0, size + 0.6, 0]}
-        center
-        distanceFactor={30}
-        style={{ pointerEvents: 'none' }}
-      >
-        <div className="text-center whitespace-nowrap pointer-events-none select-none">
-          <span
-            className="font-mono text-[10px] px-1.5 py-0.5 rounded"
-            style={{
-              color,
-              backgroundColor: 'rgba(0,0,0,0.7)',
-              textShadow: `0 0 6px ${color}`,
-            }}
-          >
-            {label}
-          </span>
-        </div>
-      </Html>
+      {/* Label — only when active, so the belt isn't a wall of labels */}
+      {(isSelected || isHovered) && (
+        <Html
+          position={[0, size + 0.6, 0]}
+          center
+          distanceFactor={30}
+          occlude
+          zIndexRange={[20, 0]}
+          style={{ pointerEvents: 'none' }}
+        >
+          <div className="text-center whitespace-nowrap pointer-events-none select-none">
+            <span
+              className="font-mono text-[10px] px-1.5 py-0.5 rounded"
+              style={{
+                color,
+                backgroundColor: 'rgba(0,0,0,0.72)',
+                textShadow: `0 0 6px ${color}`,
+              }}
+            >
+              {label}
+            </span>
+          </div>
+        </Html>
+      )}
     </group>
   );
 }

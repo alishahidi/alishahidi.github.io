@@ -39,6 +39,8 @@ export interface ResumeContent {
     phoneDisplay: string;
     github: string;
     githubUrl: string;
+    linkedin: string;
+    linkedinUrl: string;
     location: string;
   };
   labels: {
@@ -76,6 +78,8 @@ export const resume: Record<ResumeLang, ResumeContent> = {
       phoneDisplay: '+98 935 416 2611',
       github: 'github.com/alishahidi',
       githubUrl: 'https://github.com/alishahidi',
+      linkedin: 'linkedin.com/in/alishahidi',
+      linkedinUrl: 'https://linkedin.com/in/alishahidi',
       location: 'Tehran, Iran',
     },
     labels: {
@@ -293,6 +297,8 @@ export const resume: Record<ResumeLang, ResumeContent> = {
       phoneDisplay: '+98 935 416 2611',
       github: 'github.com/alishahidi',
       githubUrl: 'https://github.com/alishahidi',
+      linkedin: 'linkedin.com/in/alishahidi',
+      linkedinUrl: 'https://linkedin.com/in/alishahidi',
       location: 'تهران، ایران',
     },
     labels: {

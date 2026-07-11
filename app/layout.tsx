@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Space_Grotesk, Manrope, JetBrains_Mono, Vazirmatn } from 'next/font/google';
 import { Starfield } from '@/components/shared/Starfield';
+import { MotionProvider } from '@/components/shared/MotionProvider';
 import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -100,6 +101,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
   themeColor: '#060814',
 };
 
@@ -151,7 +153,8 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrainsMono.variable} ${vazirmatn.variable} antialiased`}
       >
         <Starfield />
-        {children}
+        <div className="site-grain" aria-hidden="true" />
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

@@ -46,25 +46,58 @@
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
   --font-fa: var(--font-vazirmatn), var(--font-body), sans-serif;
+
+  /* systematic type scale (≈1.2 ratio) — use these, not ad-hoc px */
+  --text-caption: 0.8125rem; /* 13px — mono labels, dates, tags */
+  --text-sm: 0.9375rem;      /* 15px — small body, card meta */
+  --text-body: 1.0625rem;    /* 17px — reading copy */
+  --text-lead: 1.1875rem;    /* 19px — hero sub, intros */
+  --text-h3: 1.5rem;         /* 24px — card titles */
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* smooth scroll only when motion is welcome */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* solid floor so overscroll / rubber-band never flashes white */
 html {
-  scroll-behavior: smooth;
+  background: var(--color-void);
 }
 
 body {
-  background: var(--color-void);
+  background:
+    linear-gradient(180deg, #060814 0%, #080a1a 52%, #050710 100%);
+  background-attachment: fixed;
   color: var(--color-starlight);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  font-size: 19px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+}
+
+/* filmic grain — dithers gradient banding, adds an analog-photography feel */
+.site-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+@media print {
+  .site-grain {
+    display: none !important;
+  }
 }
 
 /* ---- scrollbars ---- */
@@ -166,6 +199,23 @@ body {
   }
 }
 
+/* scroll-triggered reveal (IntersectionObserver toggles .is-in).
+   Only hides content when motion is welcome, so reduced-motion users
+   never get stuck with invisible sections. */
+@media (prefers-reduced-motion: no-preference) {
+  .io-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+    transition-delay: var(--io-delay, 0s);
+  }
+  .io-reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -216,8 +266,9 @@ body {
 
 /* gold CTA glow pulse */
 @media (prefers-reduced-motion: no-preference) {
+  /* 4s to match sun-breathe — the Sun is the site's heartbeat */
   .cta-glow {
-    animation: ctaGlow 2.8s ease-in-out infinite;
+    animation: ctaGlow 4s ease-in-out infinite;
   }
 }
 @keyframes ctaGlow {
@@ -240,6 +291,81 @@ body {
 }
 .orbit-rail:last-child::before {
   display: none;
+}
+/* a faint light travels the timeline rail (reuses the unused pulseTravel motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-rail::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 5.5px;
+    top: 18px;
+    width: 3px;
+    height: 3px;
+    border-radius: 9999px;
+    background: var(--color-gold-bright);
+    box-shadow: 0 0 8px 1px var(--color-gold-bright);
+    animation: railTravel 4.5s ease-in-out infinite;
+    animation-delay: var(--rail-delay, 0s);
+  }
+  .orbit-rail:last-child::after {
+    display: none;
+  }
+}
+@keyframes railTravel {
+  0% { transform: translateY(0); opacity: 0; }
+  12% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(var(--rail-len, 120px)); opacity: 0; }
+}
+
+/* section seam — a horizon hairline that fades at both edges, replacing flat borders */
+.section-seam {
+  border: 0;
+  height: 1px;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(253, 184, 19, 0.28) 30%,
+    rgba(72, 223, 227, 0.22) 70%,
+    transparent
+  );
+}
+
+/* premium card surface: top highlight + resting shadow + hover lift */
+.card-cosmos {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 60%),
+    color-mix(in srgb, var(--color-orbit) 55%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 40px -26px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s cubic-bezier(0.2, 0.6, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+}
+.card-cosmos::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card-cosmos:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* animated scroll cue */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-cue {
+    animation: scrollCue 2.4s ease-in-out infinite;
+  }
+}
+@keyframes scrollCue {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
 }
 
 /* underline sweep for nav/links */

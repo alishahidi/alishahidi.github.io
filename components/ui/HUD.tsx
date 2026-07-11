@@ -65,7 +65,14 @@ export function HUD() {
   const totalAchievements = useAchievementStore.getState().achievements.length;
 
   return (
-    <div className="fixed inset-x-0 top-0 p-2 sm:p-4 z-30 pointer-events-none">
+    <div
+      className="fixed inset-x-0 top-0 p-2 sm:p-4 z-30 pointer-events-none"
+      style={{
+        paddingTop: 'max(0.5rem, env(safe-area-inset-top))',
+        paddingLeft: 'max(0.5rem, env(safe-area-inset-left))',
+        paddingRight: 'max(0.5rem, env(safe-area-inset-right))',
+      }}
+    >
       <div className="max-w-screen-xl mx-auto flex items-start justify-between gap-2">
         {/* Left side - Logo and stats */}
         <motion.div
@@ -121,42 +128,48 @@ export function HUD() {
           <div className="flex gap-1.5 sm:gap-2 justify-end">
             <button
               onClick={toggleExplorationBoard}
-              className="px-2 sm:px-3 py-1 sm:py-1.5 bg-black/50 backdrop-blur-sm border border-[#FDB813]/30 rounded
-                text-[#FDB813] font-mono text-[10px] sm:text-xs hover:bg-[#FDB813]/10 hover:border-[#FDB813]/50
+              title="Exploration log — achievements & progress"
+              aria-label="Open exploration log"
+              className="min-h-9 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-black/50 backdrop-blur-sm border border-[#FDB813]/30 rounded
+                text-[#FDB813] font-mono text-[11px] sm:text-xs hover:bg-[#FDB813]/10 hover:border-[#FDB813]/50
                 active:bg-[#FDB813]/20 transition-all"
             >
-              <span className="sm:hidden">[*] {unlockedCount}/{totalAchievements}</span>
+              <span className="sm:hidden">✦ Log {unlockedCount}/{totalAchievements}</span>
               <span className="hidden sm:inline">[*] LOG {unlockedCount}/{totalAchievements}</span>
             </button>
             <button
               onClick={toggleTerminal}
-              className="px-2 sm:px-3 py-1 sm:py-1.5 bg-black/50 backdrop-blur-sm border border-[#FDB813]/30 rounded
-                text-[#FDB813] font-mono text-[10px] sm:text-xs hover:bg-[#FDB813]/10 hover:border-[#FDB813]/50
+              title="Open the interactive terminal (~)"
+              aria-label="Open terminal"
+              className="min-h-9 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-black/50 backdrop-blur-sm border border-[#FDB813]/30 rounded
+                text-[#FDB813] font-mono text-[11px] sm:text-xs hover:bg-[#FDB813]/10 hover:border-[#FDB813]/50
                 active:bg-[#FDB813]/20 transition-all"
             >
-              <span className="sm:hidden">[~]</span>
+              <span className="sm:hidden">❯ Terminal</span>
               <span className="hidden sm:inline">[~] TERMINAL</span>
             </button>
           </div>
         </motion.div>
       </div>
 
-      {/* Center guidance — auto-hides after first click */}
+      {/* Onboarding hint — pinned near the bottom (off the Sun's glow), above
+          the control bar; auto-hides after the first click */}
       <AnimatePresence>
         {showGuidance && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
             transition={{ delay: 1.5 }}
-            className="fixed inset-0 flex items-center justify-center pointer-events-none z-20"
+            className="fixed inset-x-0 bottom-20 sm:bottom-24 flex justify-center px-4 pointer-events-none z-20"
           >
-            <div className="bg-black/50 backdrop-blur-sm border border-[#FDB813]/15 rounded-lg px-4 py-2.5 text-center">
-              <p className="text-[#FDB813]/75 font-mono text-[10px] sm:text-xs">
+            <div className="bg-[#060814]/85 backdrop-blur-sm border border-[#FDB813]/25 rounded-lg px-4 py-2.5 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.7)]">
+              <p className="text-white/90 font-mono text-[11px] sm:text-sm">
                 Click any planet, moon, or station
               </p>
-              <p className="text-gray-600 font-mono text-[9px] sm:text-[10px] mt-0.5">
-                Drag to orbit &middot; Scroll to zoom
+              <p className="text-[#9AA5CC] font-mono text-[10px] sm:text-xs mt-0.5">
+                Drag to orbit &middot; Scroll to zoom &middot; press{' '}
+                <span className="text-[#FDB813]">?</span> for the legend
               </p>
             </div>
           </motion.div>

@@ -11,6 +11,7 @@ interface MoonProps {
   planetId: string;
   isSelected: boolean;
   isHovered: boolean;
+  parentActive: boolean;
   onClick: () => void;
   onHover: (hovered: boolean) => void;
 }
@@ -19,6 +20,7 @@ export function Moon({
   config,
   isSelected,
   isHovered,
+  parentActive,
   onClick,
   onHover,
 }: MoonProps) {
@@ -69,26 +71,31 @@ export function Moon({
         />
       </mesh>
 
-      {/* Label */}
-      <Html
-        position={[0, config.size + 0.5, 0]}
-        center
-        distanceFactor={30}
-        style={{ pointerEvents: 'none' }}
-      >
-        <div className="text-center whitespace-nowrap pointer-events-none select-none">
-          <span
-            className="font-mono text-[10px] px-1.5 py-0.5 rounded"
-            style={{
-              color: config.color,
-              backgroundColor: 'rgba(0,0,0,0.6)',
-              textShadow: `0 0 6px ${config.color}`,
-            }}
-          >
-            {config.label}
-          </span>
-        </div>
-      </Html>
+      {/* Label — only when this moon (or its planet) is active, to avoid
+          ~30 always-on labels stacking into an unreadable pile */}
+      {(isSelected || isHovered || parentActive) && (
+        <Html
+          position={[0, config.size + 0.5, 0]}
+          center
+          distanceFactor={30}
+          occlude
+          zIndexRange={[20, 0]}
+          style={{ pointerEvents: 'none' }}
+        >
+          <div className="text-center whitespace-nowrap pointer-events-none select-none">
+            <span
+              className="font-mono text-[10px] px-1.5 py-0.5 rounded"
+              style={{
+                color: config.color,
+                backgroundColor: 'rgba(0,0,0,0.72)',
+                textShadow: `0 0 6px ${config.color}`,
+              }}
+            >
+              {config.label}
+            </span>
+          </div>
+        </Html>
+      )}
     </group>
   );
 }

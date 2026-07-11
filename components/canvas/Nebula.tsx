@@ -12,6 +12,26 @@ interface NebulaProps {
   onClick: () => void;
 }
 
+// A soft radial alpha texture — dense center fading smoothly to transparent —
+// so cloud sprites read as gas rather than hard-edged discs. Cached across all
+// nebulae (they only differ by tint, applied via material color).
+let softSpriteTex: THREE.CanvasTexture | null = null;
+function getSoftSprite() {
+  if (softSpriteTex) return softSpriteTex;
+  const s = 128;
+  const c = document.createElement('canvas');
+  c.width = c.height = s;
+  const ctx = c.getContext('2d')!;
+  const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  g.addColorStop(0, 'rgba(255,255,255,1)');
+  g.addColorStop(0.5, 'rgba(255,255,255,0.35)');
+  g.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, s, s);
+  softSpriteTex = new THREE.CanvasTexture(c);
+  return softSpriteTex;
+}
+
 export function Nebula({ config, isSelected, onClick }: NebulaProps) {
   const groupRef = useRef<THREE.Group>(null);
   const coreRef = useRef<THREE.Group>(null);
@@ -34,10 +54,12 @@ export function Nebula({ config, isSelected, onClick }: NebulaProps) {
     return positions;
   }, [config.size]);
 
-  // Generate cloud sprite layers — overlapping transparent blobs at different offsets
+  const sprite = useMemo(() => getSoftSprite(), []);
+
+  // Generate cloud sprite layers — overlapping soft blobs at different offsets
   const cloudLayers = useMemo(() => {
-    return Array.from({ length: 8 }, (_, i) => {
-      const angle = (i / 8) * Math.PI * 2;
+    return Array.from({ length: 5 }, (_, i) => {
+      const angle = (i / 5) * Math.PI * 2;
       const spread = config.size * 0.4;
       return {
         position: [
@@ -45,8 +67,8 @@ export function Nebula({ config, isSelected, onClick }: NebulaProps) {
           Math.sin(angle) * spread * (0.3 + Math.random() * 0.7) * 0.5,
           (Math.random() - 0.5) * spread * 0.3,
         ] as [number, number, number],
-        scale: config.size * (0.5 + Math.random() * 0.8),
-        opacity: config.opacity * (0.4 + Math.random() * 0.6),
+        scale: config.size * (0.7 + Math.random() * 1.0),
+        opacity: config.opacity * (0.28 + Math.random() * 0.4),
         rotationSpeed: (Math.random() - 0.5) * 0.05,
       };
     });
@@ -84,11 +106,12 @@ export function Nebula({ config, isSelected, onClick }: NebulaProps) {
               onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }}
               onPointerOut={(e) => { e.stopPropagation(); document.body.style.cursor = 'default'; }}
             >
-              <circleGeometry args={[config.size * 0.4, 32]} />
+              <planeGeometry args={[config.size * 1.1, config.size * 1.1]} />
               <meshBasicMaterial
+                map={sprite}
                 color={config.color}
                 transparent
-                opacity={config.opacity * 1.5}
+                opacity={config.opacity * 1.2}
                 side={THREE.DoubleSide}
                 depthWrite={false}
                 blending={THREE.AdditiveBlending}
@@ -106,8 +129,9 @@ export function Nebula({ config, isSelected, onClick }: NebulaProps) {
               onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }}
               onPointerOut={(e) => { e.stopPropagation(); document.body.style.cursor = 'default'; }}
             >
-              <circleGeometry args={[layer.scale, 32]} />
+              <planeGeometry args={[layer.scale * 2, layer.scale * 2]} />
               <meshBasicMaterial
+                map={sprite}
                 color={config.color}
                 transparent
                 opacity={layer.opacity}

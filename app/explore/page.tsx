@@ -13,6 +13,8 @@ import { NodeDetail } from '@/components/ui/NodeDetail';
 import { MiniMap } from '@/components/ui/MiniMap';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { Legend } from '@/components/ui/Legend';
+import { A11yNodes } from '@/components/ui/A11yNodes';
+import { IntroCoach } from '@/components/ui/IntroCoach';
 import { useKeyboard, useKonamiCode } from '@/hooks/useKeyboard';
 import { useGraphStore } from '@/stores/graphStore';
 
@@ -124,7 +126,7 @@ function ExploreContent() {
   }, []);
 
   return (
-    <main className="relative w-screen h-screen overflow-hidden bg-[#060814]">
+    <main className="relative h-[100dvh] min-h-[100svh] w-screen overflow-hidden bg-[#060814]">
       {/* Matrix rain background */}
       <MatrixRain enabled={matrixEnabled} opacity={0.05} />
 
@@ -132,6 +134,9 @@ function ExploreContent() {
       <SceneErrorBoundary>
         <Scene glitchIntensity={glitchIntensity} />
       </SceneErrorBoundary>
+
+      {/* Keyboard + screen-reader access to the canvas bodies */}
+      <A11yNodes />
 
       {/* UI Overlays */}
       <HUD />
@@ -154,12 +159,17 @@ function ExploreContent() {
         onComplete={() => setGlitchActive(false)}
       />
 
-      {/* Back to the main site */}
+      {/* First-run onboarding */}
+      <IntroCoach />
+
+      {/* Back to the main site — short label + solid pill, its own corner slot
+          (the Legend now sits to its right, so nothing overlaps it) */}
       <Link
         href="/"
-        className="fixed bottom-4 left-4 z-50 font-mono text-xs text-[#FDB813]/70 hover:text-[#FDB813] border border-[#FDB813]/40 hover:border-[#FDB813] rounded px-3 py-1.5 bg-[#060814]/60 backdrop-blur-sm transition-colors"
+        aria-label="Exit to the main site"
+        className="fixed bottom-4 left-4 z-50 flex min-h-9 items-center rounded-full border border-[#FDB813]/40 bg-[#060814]/80 px-3.5 py-1.5 font-mono text-xs text-[#FDB813]/80 backdrop-blur-sm transition-colors hover:border-[#FDB813] hover:text-[#FDB813]"
       >
-        ← exit to alishahidi.net
+        ← exit
       </Link>
     </main>
   );

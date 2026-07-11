@@ -36,7 +36,11 @@ export function Scene({ glitchIntensity = 0 }: SceneProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className="fixed inset-0 bg-[#060814]">
+    <div
+      className="fixed inset-0 bg-[#060814]"
+      role="img"
+      aria-label="Interactive 3D solar system: Ali Shahidi's career, where companies are planets, skills are moons, and projects are stations. A keyboard-accessible list of every body follows."
+    >
       <Canvas
         camera={{
           position: [0, 40, 90],

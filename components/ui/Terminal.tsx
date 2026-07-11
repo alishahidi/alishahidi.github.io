@@ -153,6 +153,7 @@ export function Terminal({ onGlitch, onThemeChange, onMatrixToggle }: TerminalPr
               </div>
               <button
                 onClick={() => useTerminalStore.getState().setOpen(false)}
+                aria-label="Close terminal"
                 className="text-[#FDB813]/60 hover:text-[#FDB813] transition-colors"
               >
                 [ESC]
@@ -162,6 +163,10 @@ export function Terminal({ onGlitch, onThemeChange, onMatrixToggle }: TerminalPr
             {/* Output */}
             <div
               ref={scrollRef}
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions"
+              aria-label="Terminal output"
               className="h-48 sm:h-64 overflow-y-auto scroll-smooth p-3 sm:p-4 font-mono text-xs sm:text-sm overscroll-contain"
             >
               {history.map((entry, i) => (
@@ -189,6 +194,7 @@ export function Terminal({ onGlitch, onThemeChange, onMatrixToggle }: TerminalPr
                 <input
                   ref={inputRef}
                   type="text"
+                  aria-label="Terminal command input"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
